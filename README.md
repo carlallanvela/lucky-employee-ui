@@ -1,5 +1,10 @@
 # LuckyEmployeeUi
 
+This is the front end for the Spring Boot application in https://github.com/carlallanvela/lucky-employee.
+
+Live Application deployed in AWS.
+http://lucky-employee.s3-website-ap-southeast-2.amazonaws.com/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
