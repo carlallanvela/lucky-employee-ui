@@ -1,0 +1,37 @@
+<h1>Add/Update Employee</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="employeeName.invalid">
+    Enter valid Employee Name.
+  </div>
+  <div class="alert alert-warning" *ngIf="lastErrandDate.invalid">
+    Enter valid date.
+  </div>
+  <form (ngSubmit)="!addEmployeeForm.invalid && saveEmployee()" #addEmployeeForm="ngForm">
+    <fieldset class="form-group">
+      <label>Employee Name</label>
+      <input type="text" #employeeName="ngModel" [(ngModel)]="employee.employeeName" class="form-control"
+      name="employeeName" required="required" minlength="5">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Last Errand Date</label>
+      <input type="date" #lastErrandDate="ngModel"
+      [ngModel]="employee.lastErrandDate | date:'yyyy-MM-dd' "
+      (ngModelChange)="employee.lastErrandDate = $event"
+      class="form-control" name="lastErrandDate" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Is Present</label><br>
+      <div class="btn-group">
+          <select #present="ngModel" [(ngModel)]="employee.present" class="form-control"
+            name="present" required="required" ng-selected="employee.present">
+              <option value="true">True</option>
+              <option value="false">False</option>
+          </select>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-success" [disabled]=!addEmployeeForm.form.valid>Save</button>
+    <button (click)="goBack()" class="btn btn-secondary">Back</button>
+  </form>
+</div>
+
+
